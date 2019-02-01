@@ -23,10 +23,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# Ambient Display
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -35,9 +31,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc
+
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # Display
 PRODUCT_PACKAGES += \
@@ -47,6 +51,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
+
+# IFAA manager
+PRODUCT_PACKAGES += \
+    org.ifaa.android.manager
+
+PRODUCT_BOOT_JARS += \
+    org.ifaa.android.manager
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -60,6 +71,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sdm845
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    lineage.livedisplay@1.0-service-sdm
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
@@ -70,7 +85,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.qcom:64
 
 # QTI
 PRODUCT_COPY_FILES += \
